@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    --link-color: #000000;
+    --link-color_hover: #535353;
+    --link-color_active: #acacac;
+
+    --delete-button: #ff6979;
+    --delete-button-hover: #ff0000;
+}
+
+.wrapper {
+    display: flex;
+}
+
+nav {
+    background-color: #dddddd;
+    min-width: 250px;
+    height: 652px;
+    display: inline-block;
+    padding-top: 100px;
+}
+
+nav .search {
+    display: flex;
+}
+
+nav .search .search-control {
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid black;
+    height: 30px;
+    width: 170px;
+    font-size: 24px;
+    padding-left: 30px;
+    outline: none;
+}
+
+nav .search .search-but {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+nav .search .search-control::placeholder {
+    color: black;
+}
+
+
+nav .unchangeable_menu {
+    list-style: none;
+    padding: 0;
+}
+
+nav .unchangeable_menu .unchangeable_menu_item {
+    padding: 10px 0 10px 40px; /* размер ячеек "неизменяемого" меню */
+}
+
+nav .unchangeable_menu .unchangeable_menu_item:hover {
+    background-color: var(--link-color_hover) !important;
+}
+
+nav .unchangeable_menu .unchangeable_menu_item .unchangeable_menu_link {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+
+
+nav .changeable_menu_title {
+    color: #5b5b5d;
+    border-bottom: 2px solid #5b5b5d;
+    margin-left: 40px;
+}
+
+nav .changeable_menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* Настройка ползунка прокрутки */
+
+nav ::-webkit-scrollbar-button {
+    background-repeat:no-repeat;
+    width:1px;
+    height:0px
+}
+
+nav ::-webkit-scrollbar-track {
+    background-color:#dddddd;
+}
+
+nav ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #a5a5a5;
+    box-shadow:0px 1px 1px #fff inset;
+    background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+nav ::-webkit-resizer{
+    background-repeat:no-repeat;
+    width:3px;
+    height:0px
+}
+
+nav ::-webkit-scrollbar{
+    width: 5px;
+}
+/**/
+
+
+nav .changeable_menu .changeable_menu_item:before {
+    content: '\2022';
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+nav .changeable_menu .changeable_menu_item {
+    padding: 0 0 0 40px; /* размер ячеек "изменяемого" меню */
+    cursor: pointer;
+}
+
+nav .changeable_menu .changeable_menu_item:hover {
+    background-color: var(--link-color_hover) !important;
+}
+
+nav .changeable_menu .changeable_menu_item .changeable_menu_link {
+    text-decoration: none;
+    color: black;
+    vertical-align: middle;
+}
+
+nav .changeable_menu .add_new_category:before {
+    content: '\00D7';
+    transform: rotate(45deg);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+nav .changeable_menu .add_new_category {
+    padding: 5px 0 5px 40px; /* размер ячеек "изменяемого" меню */
+    cursor: pointer;
+}
+
+nav .changeable_menu .add_new_category:hover {
+    background-color: var(--link-color_hover);
+}
+
+nav .changeable_menu .add_new_category .add_new_category_link {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+nav .settings {
+    display: inline-block;
+    position: sticky;
+    top: 692px;
+    left: 40px;
+}
+
+
+
+.main_block {
+    display: inline-block;
+    margin-left: 40px;
+    padding-right: 10px;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+
+/* стилизация одинаковых компоненов страницы */
+
+.main_block .main_block_title {
+
+}
+
+.main_block .main_block_title h2 {
+    font-size: 55px;
+    margin: 40px 0 10px 0;
+}
+
+.main_block .action-but {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+}
+
+.main_block .action-but .add_note_link {
+    transform: rotate(45deg);
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main_block .add_note_link:hover {
+    color: var(--link-color_hover);
+}
+
+
+.main_block .all_notes {
+    overflow: auto;
+    max-height: 620px;
+    width: 100%;
+}
+
+/* Настройка ползунка прокрутки */
+
+.main_block .all_notes::-webkit-scrollbar-button {
+    background-repeat:no-repeat;
+    width:1px;
+    height:0px
+}
+
+.main_block .all_notes::-webkit-scrollbar-track {
+    background-color:#dddddd;
+}
+
+.main_block .all_notes::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #a5a5a5;
+    box-shadow:0px 1px 1px #fff inset;
+    background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.main_block .all_notes::-webkit-resizer{
+    background-repeat:no-repeat;
+    width:3px;
+    height:0px
+}
+
+.main_block .all_notes::-webkit-scrollbar{
+    width: 5px;
+}
+/**/
+
+.main_block .all_notes .note {
+
+}
+
+.main_block .all_notes .note .notes_date {
+    font-size: 19px;
+    margin: 20px 0 20px 0;
+    padding: 5px 0;
+    color: #71717c;
+    background-color: #c6c6c6;
+}
+
+.main_block .all_notes  .notes_category {
+    font-size: 17px;
+    margin: 20px 0 20px 0;
+}
+
+.main_block .all_notes .note .notes_content {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* Стилизация чекбокса */
+
+.main_block .all_notes .note .notes_content .notes_checkbox input {
+    display: none;
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input:checked + span {
+    text-decoration: line-through; /* если у чекбокса есть атрибут checked */
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input + span {
+    position: relative;
+    padding-left: 2.5em;
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #000;
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input:checked + span::after{
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #1563ff;
+    width: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input + span a {
+    color: black;
+    text-decoration: none;
+}
+
+.main_block .all_notes .note .notes_content .notes_checkbox input + span a:hover {
+    color: var(--link-color_hover);
+}
+
+/**/
+
+.main_block .all_notes .note .notes_content .notes_deadline {
+    margin: 0 0 0 40px;
+    font-size: 16px;
+    color: #555555;
+}
+
+
+.main_block .all_notes .empty_block {
+    margin: 20% 0 0 0;
+    text-align: center;
+}
+
+
+

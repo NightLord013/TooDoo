@@ -1,0 +1,35 @@
+.main_block .main_block_title {
+    position: relative;
+}
+
+.main_block .main_block_title h2 {
+    font-size: 45px;
+    margin: 40px 0 10px 0;
+}
+
+.main_block form .refuse, .main_block form input[type="submit"] {
+    border: 2px solid black;
+    padding: 5px 10px;
+    outline: none;
+    color: #000000;
+    background-color: inherit;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.main_block form .refuse {
+    text-decoration: none;
+    padding: 1.5px 10px;
+    right: 180px;
+}
+
+.main_block form .refuse:hover, .main_block form input[type="submit"]:hover {
+    background-color: var(--link-color_hover);
+}

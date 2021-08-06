@@ -1,0 +1,76 @@
+{% extends 'NoteBoardApp/base.html' %}
+
+{% load static %}
+
+{% block title %}TooDoo — Today{% endblock %}
+
+{% block style %}{% static 'css/home.css' %}{% endblock %}
+
+{% block content %}
+    {% comment %}
+    <div class="add_note">
+        <a class="add_note_link" href="{% url 'add_note' %}">✛</a>
+    </div>
+    {% endcomment %}
+    <div class="main_block_title">
+        <h2>Today</h2>
+        <div class="action-but">
+            <a class="add_note_link" href="{% url 'add_note' %}">╳</a>
+        </div>
+        <h6>{% now "d F Y" %} года</h6>
+    </div>
+    <div class="all_notes">
+        {% for note in notes %}
+            <div class="note">
+                {% ifchanged %}<h6 class="notes_category">{{ note.category }}</h6>{% endifchanged %}
+                <div class="notes_content">
+                    <label class="notes_checkbox">
+                        <input type="checkbox" id="{{ note.id }}"
+                                {% if note.is_done %}
+                                    checked
+                                {% endif %}>
+                        <span class="notes_title"><a href="{% url 'detail_note' note.id %}">{{ note.title }}</a></span>
+                    </label>
+                    <p class="notes_deadline">{{ note.deadline|time:"H:i" }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty_block">
+                <img src="{% static 'img/box.gif' %}" width="50">
+                <p>Тут пока пусто</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    $('document').ready(function (){
+
+        $('.notes_checkbox > input').on("change", function (){
+
+            $.ajax({
+                type: 'GET',
+                url: {% url 'note_action_ajax' %},
+                data: {'checked': this.id},
+                success: function (data){
+                },
+            });
+        })
+    });
+
+    // стилизация выполненых и невыполненых заданий
+
+    $('input:checkbox').click(function(){
+        if ($(this).is(':checked')) {
+            $(this).children('span').css('textDecoration', 'line-through');
+        } else {
+            $(this).children('span').css('textDecoration', 'none');
+        }
+    });
+
+
+    // выделение активной ссылки меню
+    $('.unchangeable_menu_item:eq(0)').css({'backgroundColor': 'var(--link-color_active)'})
+    </script>
+{% endblock %}

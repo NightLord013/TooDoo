@@ -1,0 +1,66 @@
+{% extends 'NoteBoardApp/base.html' %}
+
+{% load static %}
+
+{% block title %}TooDoo — All{% endblock %}
+
+{% block style %}{% static 'css/search.css' %}{% endblock %}
+
+{% block content %}
+    <div class="main_block_title">
+        <h2>Search: {{ keyword }}</h2>
+    </div>
+    <div class="all_notes">
+        {% for note in notes %}
+            <div class="note">
+                {% ifchanged %}<h4 class="notes_date">{{ note.deadline|date:"d F Y" }}</h4>{% endifchanged %}
+                {% ifchanged %}<h6 class="notes_category">{{ note.category }}</h6>{% endifchanged %}
+                <div class="notes_content">
+                    <label class="notes_checkbox">
+                        <input type="checkbox" id="{{ note.id }}"
+                                {% if note.is_done %}
+                                    checked
+                                {% endif %}>
+                        <span class="notes_title"><a href="{% url 'detail_note' note.id %}">{{ note.title }}</a></span>
+                    </label>
+                    <p class="notes_deadline">{{ note.deadline|time:"H:i" }}</p>
+                </div>
+
+                {% empty %}
+                <div class="empty_block">
+                <img src="{% static 'img/box.gif' %}" width="50">
+                    <p>Ничего не найдено...</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    $('document').ready(function (){
+
+        $('.notes_checkbox > input').on("change", function (){
+
+            $.ajax({
+                type: 'GET',
+                url: {% url 'note_action_ajax' %},
+                data: {'checked': this.id},
+                success: function (data){
+                    console.log(data)
+                },
+            });
+        })
+    });
+
+    // стилизация выполненых и невыполненых заданий
+    $('input:checkbox').click(function(){
+        if ($(this).is(':checked')) {
+            $(this).children('span').css('textDecoration', 'line-through');
+        } else {
+            $(this).children('span').css('textDecoration', 'none');
+        }
+    });
+
+    </script>
+{% endblock %}

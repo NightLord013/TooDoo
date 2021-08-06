@@ -1,0 +1,79 @@
+.main_block .main_block_title {
+
+}
+
+.main_block .main_block_title h2 {
+    font-size: 55px;
+    margin: 40px 0 10px 0;
+}
+
+form {
+}
+
+form p {
+    margin: 5px 0;
+}
+
+form .form_item {
+    text-indent: 40px;
+    font-size: 16px;
+}
+
+/*
+form .form_item #id_title {
+    width: 400px;
+    height: 30px;
+    font-size: 22px;
+}
+
+form .form_item select {
+    width: 200px;
+    height: 30px;
+    font-size: 22px;
+}
+*/
+
+form .datetime{
+    margin-left: 40px;
+    font-size: 16px;
+}
+
+
+form .datetime input {
+    margin-bottom: 15px;
+}
+
+/*
+form .datetime input[type='date']{
+    width: 195px;
+    height: 30px;
+    font-size: 22px;
+}
+
+form .datetime input[type='time']{
+    width: 100px;
+    height: 30px;
+    font-size: 22px;
+}
+*/
+
+form input[type="submit"] {
+    border: 2px solid black;
+    padding: 5px 10px;
+    outline: none;
+    color: #000000;
+    background-color: inherit;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--link-color_hover);
+}

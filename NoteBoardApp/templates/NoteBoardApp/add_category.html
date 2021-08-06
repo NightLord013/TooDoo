@@ -1,0 +1,59 @@
+{% extends 'NoteBoardApp/base.html' %}
+
+{% load static %}
+
+{% block title %}TooDoo — New Category{% endblock %}
+
+{% block style %}{% static 'css/add_category.css' %}{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">
+                <p class="message_text">{{ message }}</p>
+                <a href="#" class="close">✖</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="main_block_title">
+        <h2>Add New Category</h2>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {% for item in form %}
+            <p class="form_label">{{ item.label }}:</p>
+            <p class="form_item">{{ item }}</p>
+        {% endfor %}
+        <input type="submit" value="Добавить">
+    </form>
+    <div class="popular_category">
+        <h4 class="popular_category_title">Популярные категории срди пользователей:</h4>
+        {% for i in popular_category %}
+            <p class="popular_category_item">{{ i.0 }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // выделение активной ссылки меню
+        $('.add_new_category').css({'backgroundColor': 'var(--link-color_active)'})
+
+        // заносит в поле ввода категории выбранное значение
+        $('.popular_category_item').on('click', function (){
+            $('#id_name').val(this.textContent)
+        })
+
+
+        let movingBlock = $('.message').hide();
+
+        $(window).on('load', function(){
+            movingBlock.slideToggle();
+        });
+
+        $('.close').on('click', function (){
+            movingBlock.slideToggle();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,84 @@
+.main_block .main_block_title {
+
+}
+
+.main_block .main_block_title h2 {
+    font-size: 55px;
+    margin: 40px 0 10px 0;
+}
+
+form {
+}
+
+form p {
+    margin: 5px 0 ;
+}
+
+form .form_item {
+    text-indent: 40px;
+    font-size: 16px;
+}
+
+form input[type="submit"] {
+    border: 2px solid black;
+    padding: 5px 10px;
+    outline: none;
+    color: #000000;
+    background-color: inherit;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+    background-color: var(--link-color_hover);
+}
+
+
+.popular_category {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.popular_category .popular_category_title {
+    margin: 0;
+}
+
+.popular_category .popular_category_item {
+    display: inline-block;
+    color: blue;
+    cursor: pointer;
+    margin: 10px 10px 0 10px;
+}
+
+
+
+.message {
+    width: 97%;
+    background-color: red;
+    margin: 0 125px 0 10px;
+    position: absolute;
+}
+
+.message .close {
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+}
+
+.message .message_text {
+    text-indent: 30px;
+}
+
+.message .close:hover {
+    color: #4ac1f7;
+}

@@ -1,0 +1,17 @@
+{% extends 'NoteBoardApp/base.html' %}
+
+{% load static %}
+
+{% block title %}TooDoo — {% endblock %}
+
+{% block style %}{% static 'css/delete_note.css' %}{% endblock %}
+
+{% block content %}
+    <div class="main_block_title">
+        <h2>Вы уверены что хотете удалить заметку "{{ object }}"?</h2>
+    </div>
+    <form method="post">{% csrf_token %}
+        <a class="refuse" href="{% url 'category' object.category %}">Отказаться</a>
+        <input type="submit" value="Подтвердить">
+    </form>
+{% endblock %}

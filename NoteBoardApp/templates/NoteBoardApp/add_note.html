@@ -1,0 +1,29 @@
+{% extends 'NoteBoardApp/base.html' %}
+
+{% load static %}
+
+{% block title %}TooDoo — New Note{% endblock %}
+
+{% block style %}{% static 'css/add_note.css' %}{% endblock %}
+
+{% block content %}
+    <div class="main_block_title">
+        <h2>Add New Note</h2>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {% for item in form %}
+            <p class="form_label">{{ item.label }}:</p>
+            <p class="form_item">{{ item }}</p>
+        {% endfor %}
+        <input type="submit" value="Добавить">
+    </form>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+    $('.vDateField').attr('type', 'date')
+    $('.vTimeField').attr('type', 'time')
+    </script>
+{% endblock %}
